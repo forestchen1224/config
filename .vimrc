@@ -32,6 +32,34 @@ Plug 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'plasticboy/vim-markdown'
 
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+"vim-session settings {{{
+let g:session_autoload = 'no'
+let g:session_autosave = 'no'   
+"}}}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"""""" {{{
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme='atomic'
+
+" enable/disable coc integration >
+let g:airline#extensions#coc#enabled = 1
+"change error symbol: >
+let airline#extensions#coc#error_symbol = 'E:'
+
+" change warning symbol: >
+let airline#extensions#coc#warning_symbol = 'W:'
+
+" change error format: >
+let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+
+" change warning format: >
+ let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+"}}}
+
 "coc-nvim settings --------- {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use release branch (recommend)
@@ -238,8 +266,6 @@ let g:coc_snippet_next = '<tab>'
 "NERDTree settings --------{{{
 Plug 'scrooloose/nerdtree'
 nnoremap <F4> : NERDTree<CR>
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * silent NERDTreeMirror
 "autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Initialize plugin system
@@ -258,7 +284,7 @@ set completeopt=menu
 colorscheme  murphy
 set laststatus=2
 set statusline="%f"
-"
+
 
 "cursor settings -----{{{
 "highlight cursor
@@ -308,6 +334,9 @@ set conceallevel=2
 """"""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>j :cnext<cr>
 nnoremap <leader>k :cprev<cr>
+set pastetoggle=<F2>
+
+
 "coc float window setting-------{{{
 highlight CocErrorFloat ctermfg=7
 highlight CocWarningFloat ctermfg=7
