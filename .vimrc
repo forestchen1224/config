@@ -31,6 +31,18 @@ let g:DoxygenToolkit_authorName="Forest Chen"
 Plug 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'plasticboy/vim-markdown'
+"MarkDown settings {{{
+let g:vim_markdown_math = 1
+let g:vim_markdown_toc_autofit = 0
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
+
+let g:vim_markdown_override_foldtext = 0
+let g:vim_markdown_folding_level = 6
+let g:vim_markdown_folding_style_pythonic = 1
+
+"}}}
 
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
@@ -249,7 +261,7 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"inoremap <silent><expr> <tab>
+" inoremap <silent><expr> <tab>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -260,7 +272,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
+" let g:coc_snippet_next = '<tab>'
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "NERDTree settings --------{{{
