@@ -76,7 +76,7 @@ let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_node_path="/usr/local/bin/node"
+let g:coc_node_path="/usr/bin/node"
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -282,6 +282,8 @@ nnoremap <F4> : NERDTree<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Initialize plugin system
 " }}}
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number
@@ -350,7 +352,7 @@ set pastetoggle=<F2>
 
 
 "coc float window setting-------{{{
-highlight CocErrorFloat ctermfg=7
-highlight CocWarningFloat ctermfg=7
+highlight CocErrorFloat ctermfg=0
+highlight CocWarningFloat ctermfg=0
 
 "}}}

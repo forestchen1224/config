@@ -68,7 +68,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python tmux virtualenv)
+plugins=(git python tmux virtualenv golang conda-zsh-completion conda-zsh-completion)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,13 +116,23 @@ export CLASSPATH=".:/usr/local/lib/antlr-4.9.2-complete.jar:$CLASSPATH"
 alias antlr4='java -jar /usr/local/lib/antlr-4.9.2-complete.jar'
 alias grun='java org.antlr.v4.gui.TestRig'
 
-#>>> highlight for less
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
-#<<< highlight for less
+##>>> highlight for less
+#export LESS_TERMCAP_mb=$'\e[1;32m'
+#export LESS_TERMCAP_md=$'\e[1;32m'
+#export LESS_TERMCAP_me=$'\e[0m'
+#export LESS_TERMCAP_se=$'\e[0m'
+#export LESS_TERMCAP_so=$'\e[01;33m'
+#export LESS_TERMCAP_ue=$'\e[0m'
+#export LESS_TERMCAP_us=$'\e[1;4;31m'
+##<<< highlight for less
+#
+#alias conda 
+alias start_conda=source\ ~/miniconda3/bin/activate      
+# using most as the pager
+export PAGER='most'
 
+
+# golang path and the path of its installed package
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/forestchen/go/bin
+export PATH=$PATH:/home/forestchen/.local/bin
