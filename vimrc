@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
 set nocompatible              " be iMproved, required
 "filetype off                  " required
@@ -79,7 +79,7 @@ noremap <C-p> :GFiles<CR>
 "coc-nvim settings --------- {{{
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_node_path="/usr/bin/node"
+let g:coc_node_path="/usr/local/bin/node"
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -219,6 +219,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "coc-snippets settings -----{{{
  Plug 'honza/vim-snippets'
 " Use <C-l> for trigger snippet expand.
@@ -262,7 +263,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "basic settings {{{
 set number
 syntax on
@@ -286,7 +287,7 @@ set cursorline
 highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 "}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "gcc compile settings ----{{{
 noremap <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
@@ -315,19 +316,19 @@ func! CompileRunGcc()
   endif
 endfunc
 "}}}
-""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "filetype settings {{{
 " Filetype alias
 autocmd BufNewFile,BufRead *.tpp set filetype=cpp
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
 "}}}
-""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" backspace in insert mode supported
 set backspace=indent,eol,start
-""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>j :cnext<CR>
 nnoremap <leader>k :cprev<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "coc float window setting-------{{{
 highlight CocErrorFloat ctermfg=0
 highlight CocWarningFloat ctermfg=0
