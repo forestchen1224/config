@@ -12,10 +12,10 @@ augroup filetype_vim
 augroup END
 "}}}
 call plug#begin('~/.vim/plugged')
-
 " Make sure you use single quotes
-
 Plug  'jiangmiao/auto-pairs'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'godlygeek/tabular'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "DoxygenToolkit settings -----{{{
 Plug 'vim-scripts/DoxygenToolkit.vim'
@@ -27,11 +27,8 @@ let g:DoxygenToolkit_blockFooter="----------------------------------------------
 let g:DoxygenToolkit_authorName="Forest Chen"
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Plug 'godlygeek/tabular'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'plasticboy/vim-markdown'
 "MarkDown settings {{{
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_math = 1
 let g:vim_markdown_toc_autofit = 0
 let g:vim_markdown_strikethrough = 1
@@ -43,16 +40,17 @@ let g:vim_markdown_folding_level = 6
 let g:vim_markdown_folding_style_pythonic = 1
 
 "}}}
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"vim-session settings {{{
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-"vim-session settings {{{
 let g:session_autoload = 'no'
 let g:session_autosave = 'no'   
 "}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"airline settings {{{
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"""""" {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme='atomic'
@@ -71,9 +69,14 @@ let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 " change warning format: >
  let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 "}}}
-
-"coc-nvim settings --------- {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"fzf settings{{{
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()   }   }
+Plug 'junegunn/fzf.vim'
+noremap <C-p> :GFiles<CR>
+"}}}"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"coc-nvim settings --------- {{{
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_node_path="/usr/bin/node"
@@ -159,10 +162,6 @@ autocmd CursorHold  silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -171,26 +170,6 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
@@ -238,7 +217,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "}}}
 "coc-snippets settings -----{{{
@@ -282,10 +260,10 @@ nnoremap <F4> : NERDTree<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Initialize plugin system
 " }}}
-"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"basic settings {{{
 set number
 syntax on
 set autoindent
@@ -298,8 +276,9 @@ set completeopt=menu
 colorscheme  murphy
 set laststatus=2
 set statusline="%f"
-
-
+set pastetoggle=<F2>
+set conceallevel=2
+"}}}
 "cursor settings -----{{{
 "highlight cursor
 set cursorcolumn
@@ -336,23 +315,21 @@ func! CompileRunGcc()
   endif
 endfunc
 "}}}
-""""""""""""""""""""""""""""""""""""""
-"" filetype
+""""""""""""""""""""""""""""""""""""""""""""""""
+"filetype settings {{{
 " Filetype alias
 autocmd BufNewFile,BufRead *.tpp set filetype=cpp
-""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
+"}}}
+""""""""""""""""""""""""""""""""""""""""""""""""
 "" backspace in insert mode supported
 set backspace=indent,eol,start
 """"""""""""""""""""""""""""""""""""""""""""""""
-set conceallevel=2
-""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>j :cnext<cr>
-nnoremap <leader>k :cprev<cr>
-set pastetoggle=<F2>
-
-
+nnoremap <leader>j :cnext<CR>
+nnoremap <leader>k :cprev<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""
 "coc float window setting-------{{{
 highlight CocErrorFloat ctermfg=0
 highlight CocWarningFloat ctermfg=0
-
 "}}}
+"
