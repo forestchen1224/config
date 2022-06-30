@@ -68,7 +68,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse pip)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python tmux virtualenv golang pip pipenv)
+plugins=(git python tmux virtualenv golang pip pipenv ag vi-mode yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,3 +124,10 @@ export https_proxy=http://127.0.0.1:1080
 
 # dockertag.sh
 alias dockertag=/home/$USER/App/dockertag.sh
+
+# Enable vi mode
+bindkey -v
+
+export PATH=$PATH:/home/$USER/.local/bin
+
+alias fd=fdfind

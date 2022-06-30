@@ -79,7 +79,7 @@ noremap <C-p> :GFiles<CR>
 "coc-nvim settings --------- {{{
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_node_path="/usr/bin/node"
+let g:coc_node_path="/usr/local/bin/node"
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -253,14 +253,7 @@ endfunction
 " let g:coc_snippet_next = '<tab>'
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"NERDTree settings --------{{{
-Plug 'scrooloose/nerdtree'
-nnoremap <F4> : NERDTree<CR>
-"autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Initialize plugin system
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'github/copilot.vim'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "basic settings {{{
@@ -328,8 +321,10 @@ set backspace=indent,eol,start
 nnoremap <leader>j :cnext<CR>
 nnoremap <leader>k :cprev<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""
-"coc float window setting-------{{{
+"highlight setting-------{{{
 highlight CocErrorFloat ctermfg=0
 highlight CocWarningFloat ctermfg=0
+highlight Folded ctermfg=119
+highlight Folded ctermbg=233
 "}}}
 "
