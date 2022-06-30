@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
 set nocompatible              " be iMproved, required
 "filetype off                  " required
@@ -219,6 +219,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "coc-snippets settings -----{{{
  Plug 'honza/vim-snippets'
 " Use <C-l> for trigger snippet expand.
@@ -255,7 +256,7 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'github/copilot.vim'
 call plug#end()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "basic settings {{{
 set number
 syntax on
@@ -279,7 +280,7 @@ set cursorline
 highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 "}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "gcc compile settings ----{{{
 noremap <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
@@ -308,20 +309,25 @@ func! CompileRunGcc()
   endif
 endfunc
 "}}}
-""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "filetype settings {{{
 " Filetype alias
 autocmd BufNewFile,BufRead *.tpp set filetype=cpp
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
 "}}}
-""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" backspace in insert mode supported
 set backspace=indent,eol,start
-""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>j :cnext<CR>
 nnoremap <leader>k :cprev<CR>
+<<<<<<< HEAD
 """"""""""""""""""""""""""""""""""""""""""""""""
 "highlight setting-------{{{
+=======
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"coc float window setting-------{{{
+>>>>>>> refs/remotes/origin/master
 highlight CocErrorFloat ctermfg=0
 highlight CocWarningFloat ctermfg=0
 highlight Folded ctermfg=119
