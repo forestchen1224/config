@@ -1,3 +1,6 @@
 [submodule "neovim_config"]
 	path = neovim_config
 	url = git@github.com:forestchen1224/neovim_config.git
+[submodule "ohmyzsh"]
+	path = ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
